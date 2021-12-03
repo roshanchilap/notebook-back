@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const mongoURI =
-  "mongodb+srv://admin:admin123@cluster0.769av.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+const mongoURI = process.env.MONGOURI;
 
 const connectToMongo = () => {
   mongoose.connect(mongoURI, () => {
