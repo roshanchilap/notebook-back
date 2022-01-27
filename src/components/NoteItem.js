@@ -11,6 +11,7 @@ function NoteItem({ note, updateNote }) {
           <h5 className="card-title">{note.title}</h5>
           <p className="card-text">{note.description}</p>
           <h6 className="card-title">Tag: {note.tag}</h6>
+          <h6 className="card-title">Price: {note.price}₹</h6>
           <i
             className="fas fa-trash-alt mx-2"
             onClick={() => {

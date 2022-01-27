@@ -1,0 +1,27 @@
+.quote {
+  display: flex;
+}
+.article {
+  margin-top: 8%;
+  margin-right: 2%;
+  border: 2px solid crimson;
+  padding: 50px;
+  border-radius: 37px;
+  box-shadow: 2px 3px 7px 1px rgb(18 9 20);
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 2em;
+  background: #f8968c8f;
+}
+.img {
+  position: relative;
+  height: 452px;
+  width: 700px;
+}
+.head {
+  position: absolute;
+  top: 14%;
+  left: 35%;
+  font-size: 35px;
+  color: darkblue;
+}

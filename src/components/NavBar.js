@@ -14,7 +14,7 @@ function NavBar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            My NoteBook
+            LMS
           </Link>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -27,6 +27,26 @@ function NavBar() {
                   to="/"
                 >
                   Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className={`nav-link ${
+                    location.pathname === "/course" ? "active" : ""
+                  }`}
+                  to="/course"
+                >
+                  My Courses
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className={`nav-link ${
+                    location.pathname === "/addcourse" ? "active" : ""
+                  }`}
+                  to="/addcourse"
+                >
+                  Add Courses
                 </Link>
               </li>
               <li className="nav-item">

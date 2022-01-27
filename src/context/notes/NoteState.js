@@ -2,14 +2,14 @@ import NoteContext from "./NoteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-  const host = "https://mynotebook-react.herokuapp.com";
+  const host = "http://localhost:5000";
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
 
   // Get all Notes
   const getNotes = async () => {
     // API Call
-    const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+    const response = await fetch(`${host}/api/courses/fetchallcourses`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -21,16 +21,16 @@ const NoteState = (props) => {
   };
 
   // Add a Note
-  const addNote = async (title, description, tag) => {
+  const addNote = async (title, description, tag, price, img) => {
     // TODO: API Call
     // API Call
-    const response = await fetch(`${host}/api/notes/addnote`, {
+    const response = await fetch(`${host}/api/courses/addcourse`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         auth_token: localStorage.getItem("token"),
       },
-      body: JSON.stringify({ title, description, tag }),
+      body: JSON.stringify({ title, description, tag, price, img }),
     });
 
     const note = await response.json();
@@ -40,7 +40,7 @@ const NoteState = (props) => {
   // Delete a Note
   const deleteNote = async (id) => {
     // API Call
-    await fetch(`${host}/api/notes/deletenote/${id}`, {
+    await fetch(`${host}/api/courses/deletecourse/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -54,15 +54,15 @@ const NoteState = (props) => {
   };
 
   // Edit a Note
-  const editNote = async (id, title, description, tag) => {
+  const editNote = async (id, title, description, tag, price, img) => {
     // API Call
-    await fetch(`${host}/api/notes/updatenote/${id}`, {
+    await fetch(`${host}/api/courses/updatecourse/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         auth_token: localStorage.getItem("token"),
       },
-      body: JSON.stringify({ title, description, tag }),
+      body: JSON.stringify({ title, description, tag, price, img }),
     });
 
     let newNotes = JSON.parse(JSON.stringify(notes));
@@ -73,6 +73,8 @@ const NoteState = (props) => {
         newNotes[index].title = title;
         newNotes[index].description = description;
         newNotes[index].tag = tag;
+        newNotes[index].price = price;
+        newNotes[index].img = img;
         break;
       }
     }

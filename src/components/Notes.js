@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import NoteContext from "../context/notes/NoteContext";
 import NoteItem from "./NoteItem";
-import AddNote from "./AddNote";
+import AddNote from "./AddCourse";
 import { useNavigate } from "react-router";
 
 const Notes = () => {
@@ -23,6 +23,7 @@ const Notes = () => {
     etitle: "",
     edescription: "",
     etag: "",
+    eprice: "",
   });
 
   const updateNote = (currentNote) => {
@@ -32,11 +33,12 @@ const Notes = () => {
       etitle: currentNote.title,
       edescription: currentNote.description,
       etag: currentNote.tag,
+      eprice: currentNote.price,
     });
   };
 
   const handleClick = (e) => {
-    editNote(note.id, note.etitle, note.edescription, note.etag);
+    editNote(note.id, note.etitle, note.edescription, note.etag, note.eprice);
     refClose.current.click();
   };
 
@@ -122,6 +124,19 @@ const Notes = () => {
                     onChange={onChange}
                   />
                 </div>
+                <div className="mb-3">
+                  <label htmlFor="price" className="form-label">
+                    Price
+                  </label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="eprice"
+                    name="eprice"
+                    value={note.price}
+                    onChange={onChange}
+                  />
+                </div>
               </form>
             </div>
             <div className="modal-footer">
@@ -135,7 +150,10 @@ const Notes = () => {
               </button>
               <button
                 disabled={
-                  note.etitle.length < 5 || note.edescription.length < 5
+                  note.etitle.length < 5 ||
+                  note.edescription.length < 5 ||
+                  note.edescription.length < 3 ||
+                  note.eprice.length < 3
                 }
                 onClick={handleClick}
                 type="button"
@@ -149,7 +167,7 @@ const Notes = () => {
       </div>
 
       <div className="row my-3">
-        <h2>You Notes</h2>
+        <h2>Your Courses</h2>
         <div className="container mx-2">
           {notes.length === 0 && "No notes to display"}
         </div>

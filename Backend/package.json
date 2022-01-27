@@ -1,5 +1,5 @@
 {
-  "name": "mynotebook",
+  "name": "lms",
   "version": "1.0.0",
   "description": "Your notebook over the cloud.",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "",
+  "author": "Roshan",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -19,9 +19,17 @@
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.13"
+    "mongoose": "^6.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roshanchilap/MyNoteBook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/roshanchilap/MyNoteBook/issues"
+  },
+  "homepage": "https://github.com/roshanchilap/MyNoteBook#readme"
 }
